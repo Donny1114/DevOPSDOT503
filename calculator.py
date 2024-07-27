@@ -43,7 +43,7 @@ def calculator():
 
         next_calculation = input("Do you want to perform another calculation? (yes/no): ")
         if next_calculation.lower() != 'yes':
-            print("Invalid choice. Please select a valid operation.")
+            break
        
             
 
