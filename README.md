@@ -32,5 +32,5 @@
    The deployable package will be created as `app.tar.gz`.
 
    
-   # You can clone this project by using the github link above.
+   You can clone this project by using the github link above.
 
