@@ -1,7 +1,7 @@
 # DevOps DOT503 Assessment 2
 # Build and Deployment Instructions
 
- This project can be access in GitHub with this link https://github.com/Donny1114/DevOPSDOT503.git
+ This project can be accessed in GitHub with this link https://github.com/Donny1114/DevOPSDOT503.git
  This project automates build processes using `Makefile`.
  To create and package the application, adhere to the processes 
  listed below.
