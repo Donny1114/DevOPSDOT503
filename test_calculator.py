@@ -1,5 +1,4 @@
 # test_calculator.py
-# Updated one
 import unittest
 from calculator import add, subtract, multiply, divide
 
@@ -15,15 +14,13 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(subtract(10, 5), 5)  # Expected: 5
 
     def test_multiply(self):
-        self.assertEqual(multiply(2, 3), 6)  # Expected: 6
+        self.assertEqual(multiply(2, 3), 6)  # Expected: 6 (This should pass)
 
     def test_divide(self):
-        with self.assertRaises(ZeroDivisionError):  # Properly handle division by zero
-            divide(10, 0)
-        self.assertEqual(divide(10, 2), 5)  # Expected: 5
+        self.assertEqual(divide(10, 0), 1)  # Expected: Error (This should fail)
 
     def test_divide_fail(self):
-        self.assertEqual(divide(10, 2), 5)  # Expected: 5 
+        self.assertEqual(divide(10, 2), 6)  # Expected: 5 (This should fail)
 
 if __name__ == '__main__':
     unittest.main()
