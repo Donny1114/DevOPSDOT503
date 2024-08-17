@@ -1,32 +1,31 @@
 @echo off
+
+REM Variables
 set APP=calculator.py
 set TESTS=test_calculator.py
-set PYTHON=python
-set BIN=app
 set BUILD_DIR=build
+set BIN=app
 
-:run
+REM Run the application
 echo Running the application...
-%PYTHON% %APP%
-goto :test
+python %APP%
 
-:test
+REM Run unit tests
 echo Running unit tests...
-%PYTHON% -m unittest %TESTS%
-if %ERRORLEVEL% NEQ 0 goto :error
-goto :package
+python -m unittest %TESTS%
+if %errorlevel% neq 0 (
+    echo Unit tests failed.
+    exit /b 1
+)
 
-:package
+REM Create deployable package
 echo Creating deployable package...
-if not exist %BUILD_DIR% mkdir %BUILD_DIR%
-copy %APP% %BUILD_DIR%/
-tar -czf %BIN%.tar.gz -C %BUILD_DIR% %APP%
-goto :end
+if not exist %BUILD_DIR% (
+    mkdir %BUILD_DIR%
+)
+copy %APP% %BUILD_DIR%
 
-:error
-echo Tests failed.
-exit /b 1
+REM Use PowerShell to create a ZIP archive
+powershell Compress-Archive -Path %BUILD_DIR%\* -DestinationPath %BIN%.zip
 
-:end
-echo Build complete.
-exit /b 0
+echo Build and packaging completed successfully.
