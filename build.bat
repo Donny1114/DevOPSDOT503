@@ -26,6 +26,6 @@ if not exist %BUILD_DIR% (
 copy %APP% %BUILD_DIR%
 
 REM Use PowerShell to create a ZIP archive
-powershell Compress-Archive -Path %BUILD_DIR%\* -DestinationPath %BIN%.zip
+powershell Compress-Archive -Path %BUILD_DIR%\* -DestinationPath %BIN%.zip -Force
 
 echo Build and packaging completed successfully.
